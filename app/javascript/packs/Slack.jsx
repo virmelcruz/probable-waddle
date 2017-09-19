@@ -2,13 +2,11 @@ import React, { Component } from "react"
 import { render } from "react-dom"
 import PropTypes from "prop-types"
 
-const App = () => (
-  <h1> Hello </h1>
-)
+import { default as ChatRoot } from "./Slack/Chat/ChatRoot"
 
 document.addEventListener("DOMContentLoaded", () => {
   render(
-    <App/>,
+    <ChatRoot/>,
     document.body.appendChild(document.createElement('div'))
   )
 })
