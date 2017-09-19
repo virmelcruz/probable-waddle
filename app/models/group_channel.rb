@@ -1,0 +1,3 @@
+class GroupChannel < Channel
+
+end
