@@ -15,3 +15,7 @@ body {
 ul {
   padding: 24px;
 }
+
+select {
+  width: 50% !important;
+}

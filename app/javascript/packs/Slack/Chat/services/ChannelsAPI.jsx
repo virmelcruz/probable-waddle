@@ -7,6 +7,14 @@ const ChannelsAPI = {
       method: "GET",
       onSuccess: onSuccess
     })
+  },
+  create({data, onSuccess}) {
+    API({
+      data: data,
+      url: "api/v1/channels",
+      method: "POST",
+      onSuccess: onSuccess
+    })
   }
 }
 

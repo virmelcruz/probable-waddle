@@ -28,6 +28,6 @@ class Api::V1::ChannelsController < ApiController
   private
 
   def channel_params
-    params.require(:channel).permit(:name, :type)
+    params.require(:channel).permit(:name, :type, user_ids: [])
   end
 end

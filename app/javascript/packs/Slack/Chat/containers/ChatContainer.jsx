@@ -11,7 +11,7 @@ import ChannelsAPI from "../services/ChannelsAPI"
 export default class ChatContainer extends Component {
   constructor() {
     super()
-    this.state = { users: [], publicChannels: [], privateChannels: [], groupChannels: [] }
+    this.state = { users: [], channels: [] }
   }
 
   componentWillMount() {
@@ -23,17 +23,19 @@ export default class ChatContainer extends Component {
 
     ChannelsAPI.fetchAll({
       onSuccess: (response) => {
-        this.setState({
-          publicChannels: response.data.filter( (member) => { 
-            return member.type === "PublicChannel" 
-          }),
-          privateChannels: response.data.filter( (member) => { 
-            return member.type === "PrivateChannel" 
-          }),
-          groupChannels: response.data.filter( (member) => { 
-            return member.type === "GroupChannel" 
-          })
-        })
+        this.setState({ channels: response.data } )
+      }
+    })
+  }
+
+  createChannel(params, ref1, ref2) {
+    const { channels } = this.state
+
+    ChannelsAPI.create({
+      data: params,
+      onSuccess: (response) => {
+        this.setState({ channels: channels.concat(response.data) })
+        this.toggleChannelForm(ref1, ref2)
       }
     })
   }
@@ -49,10 +51,12 @@ export default class ChatContainer extends Component {
   }
 
   render() {
-    const { users, publicChannels, privateChannels, groupChannels } = this.state
-    let formRef, contentRef;
+    const { users, channels } = this.state
+    const publicChannels = channels.filter( (member) => { return member.type === "PublicChannel" } )
+    const privateChannels = channels.filter( (member) => { return member.type === "PrivateChannel" } )
+    const groupChannels = channels.filter( (member) => { return member.type === "GroupChannel" } )
 
-    console.log("it renders")
+    let formRef, contentRef
 
     return (
       <div>
@@ -61,6 +65,8 @@ export default class ChatContainer extends Component {
           role="channel-form"
           hidden>
           <ChannelForm
+            users={ users }
+            onCreateChannel={ (value) => { this.createChannel(value, formRef, contentRef) } }
             onCancelCreateChannel={ () => { this.toggleChannelForm(formRef, contentRef) } }/>
         </div>
         <div 

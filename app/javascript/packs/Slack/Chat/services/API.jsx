@@ -10,7 +10,8 @@ const API = ({ url,
 
   if (method === 'GET') {
     axios.get(url).then(onSuccess).catch(onError)
-  } else {
+  } else if (method === 'POST') {
+    axios.post(url, data).then(onSuccess).catch(onError)
   }
 }
 

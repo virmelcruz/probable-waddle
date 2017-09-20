@@ -8,6 +8,7 @@ export default class List extends Component {
     const { items } = this.props
 
     return items.map( (item) => {
+      console.log(item.users)
       return (
         <Item
           key={ item.id }
