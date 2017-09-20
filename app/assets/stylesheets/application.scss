@@ -1,0 +1,29 @@
+
+@import "sidebar";
+/*
+ *= require_self
+ */
+
+ html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+body > #app {
+ height: 100%;
+ overflow: hidden;
+}
+
+#slack-app {
+ height: 100%;
+ display: flex;
+ flex-direction: row;
+  aside {
+    height: 100%;
+  }
+}

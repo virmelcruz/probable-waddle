@@ -5,7 +5,9 @@ export default class Item extends Component {
   render() {
     return (
       <li>
-        { this.props.name }
+        <a href="#">
+          { this.props.name }
+        </a>
       </li>
     )
   }

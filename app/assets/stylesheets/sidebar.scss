@@ -1,0 +1,36 @@
+.sidebar {
+    height: 100%;
+    flex-basis: 14%;
+    background-color: #4D394B;
+
+    .organization-container {
+        color: #fff;
+        padding: 1em 1em .5em 1em;
+        &:hover {
+            background-color: #3e313c;
+        }
+
+        h5 {
+            margin: 0px;
+        }
+    }
+}
+
+.message-panel {
+    flex-basis: 86%;
+}
+
+.list-container {
+    padding: 1em 1em .5em 1em;
+    color: rgb(202,196,201);
+    ul {
+        -webkit-padding-start: 1em;
+        list-style: none;
+        a {
+            color: inherit;
+        }
+        a:hover {
+            color: #fff;
+        }
+    }
+}

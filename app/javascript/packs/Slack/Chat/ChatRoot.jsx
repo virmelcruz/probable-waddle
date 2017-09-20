@@ -6,7 +6,7 @@ import ChatContainer from "./containers/ChatContainer"
 export default class ChatRoot extends Component {
   render() {
     return (
-      <div>
+      <div id="slack-app">
         <ChatContainer/>
       </div>
     )

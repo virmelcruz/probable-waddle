@@ -7,6 +7,6 @@ import { default as ChatRoot } from "./Slack/Chat/ChatRoot"
 document.addEventListener("DOMContentLoaded", () => {
   render(
     <ChatRoot/>,
-    document.body.appendChild(document.createElement('div'))
+    document.body.appendChild(document.getElementById('app'))
   )
 })

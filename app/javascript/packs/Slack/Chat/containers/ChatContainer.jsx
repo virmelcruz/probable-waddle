@@ -11,7 +11,10 @@ import ChannelsAPI from "../services/ChannelsAPI"
 export default class ChatContainer extends Component {
   constructor() {
     super()
-    this.state = { users: [], channels: [] }
+    this.state = {
+      users: [],
+      channels: []
+    }
   }
 
   componentWillMount() {
@@ -59,7 +62,7 @@ export default class ChatContainer extends Component {
     let formRef, contentRef
 
     return (
-      <div>
+      <div className="sidebar">
         <div 
           ref={ (el) => { formRef = el } }
           role="channel-form"
@@ -73,6 +76,14 @@ export default class ChatContainer extends Component {
           ref={ (el) => { contentRef = el } }
           role="main-content">
           <aside>
+          <div className="organization-container">
+            <h5>
+              Medifi
+            </h5>
+            <span className="text-muted">
+              vicruz
+            </span>
+          </div>
             <List 
               onClickCreateChannel={ () => { this.toggleChannelForm(formRef, contentRef) } }
               icon={ "hashtags" }
