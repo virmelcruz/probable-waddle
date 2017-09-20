@@ -15,6 +15,16 @@ class Api::V1::ChannelsController < ApiController
     end
   end
 
+  def update
+    @channel = Channel.find(params[:id])
+
+    if @channel.update_attributes(channel_params)
+      render json: @channel, serializer: Api::V1::ChannelSerializer
+    else
+      render json: { message: @channel.errors.full_messages.to_sentence }, status: 422
+    end
+  end
+
   private
 
   def channel_params

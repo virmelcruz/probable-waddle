@@ -17,11 +17,16 @@ export default class List extends Component {
   }
 
   render() {
-    const { type, items } = this.props
+    const { type, items, onClickCreateChannel } = this.props
 
     return (
       <div>
         { type }
+        { onClickCreateChannel === undefined ? "" :  
+          <button onClick={ () => { onClickCreateChannel() } } >
+            Create
+          </button>
+        }
         <ul>
           { this.renderUsers() }
         </ul>
