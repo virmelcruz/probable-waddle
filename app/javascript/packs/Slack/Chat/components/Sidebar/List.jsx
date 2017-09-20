@@ -11,17 +11,17 @@ export default class List extends Component {
       return (
         <Item
           key={ item.id }
-          name={ item.username }/>
+          name={ item.username || item.name }/>
       )
     })
   }
 
   render() {
-    const { items } = this.props
+    const { type, items } = this.props
 
     return (
       <div>
-        Direct Message
+        { type }
         <ul>
           { this.renderUsers() }
         </ul>
