@@ -5,19 +5,20 @@ import Item from "./Item";
 export default class List extends Component {
 
   renderList() {
-    const { items, icon } = this.props
+    const { items, icon, fetchMessages } = this.props
     return items.map( (item) => {
       return (
         <Item
           key={ item.id }
-          name={ item.username || item.name }/>
+          item={ item }
+          fetchMessages = {fetchMessages}
+          />
       )
     })
   };
 
   render() {
     const { type, items, onClickCreateChannel } = this.props
-
     return (
       <div className="list-container">
         { type }

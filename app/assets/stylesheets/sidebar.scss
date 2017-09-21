@@ -1,6 +1,7 @@
 .sidebar {
     height: 100%;
     flex-basis: 14%;
+    order: 1;
     background-color: #4D394B;
 
     .organization-container {
@@ -18,6 +19,7 @@
 
 .message-panel {
     flex-basis: 86%;
+    order: 2;
 }
 
 .list-container {
